@@ -19,7 +19,7 @@ class GradientDescent:
             error = y-y_predict
             mse = np.mean(error ** 2)
             db = np.sum(error)*2/len(error)
-            dw = np.sum(np.dot(error,X))*2/len(error)
+            dw = np.dot(error,X)*2/len(error)
             self.w_+=dw*self.eta
             self.b_+=db*self.eta
             self.losses.append(mse)
