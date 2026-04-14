@@ -6,3 +6,10 @@ hidden layer size: 32
 num epochs: 10
 num workers: 0
 validation fraction: 0.1
+
+
+data path: '/Users/libinvarghese/Documents/Jesna/Git_ML/ML_algorithms_Scratch/data/Iris.csv'
+features : ['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm']
+target : Species
+
+map : {'Iris-setosa':0,'Iris-versicolor':1,'Iris-virginica':2}
