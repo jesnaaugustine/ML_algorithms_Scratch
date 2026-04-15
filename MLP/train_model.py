@@ -5,7 +5,7 @@ import os
 import time
 import yaml
 
-from helper import set_all_seed
+from helper import set_all_seed,my_dataloader
 import pandas as pd
 
 parser = argparse.ArgumentParser()
@@ -55,5 +55,13 @@ mu,sigma = X_train.mean(dim =0),X_train.std(dim=0)
 
 X_train =(X_train-mu)/sigma
 X_test =(X_test-mu)/sigma
+
+train_loader,valid_loader,test_loader = my_dataloader(X_train,X_test,y_train,y_test,batch_size=SETTINGS['batch size'])
+for x_batch,y_batch in train_loader:
+    print(f'X tain shape: {x_batch.shape}')
+    print(f'Y tain shape: {y_batch.shape}')
+    break
+
+###Model
 
 
