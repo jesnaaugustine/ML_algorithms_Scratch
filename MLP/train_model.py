@@ -63,5 +63,24 @@ for x_batch,y_batch in train_loader:
     break
 
 ###Model
+class MLP(torch.nn.Module):
+    def __init__(self,num_features,num_classes,num_hidden):
+        super().__init__()
+        self.num_classes=num_classes
+        self.model = torch.nn.Sequential(
+            torch.nn.Linear(num_features,num_hidden),
+            torch.nn.ReLU(),
+            torch.nn.Linear(num_hidden,num_classes)
+
+        )
+    
+    def forword(self,X):
+        return self.model(X)
+    
+model= MLP(num_features=X_train.shape[1],num_hidden=SETTINGS['hidden layer size'],num_classes=SETTINGS['num class labels'])
+model=model.to(device)
+optimizer=torch.optim.SGD(model.parameters(),lr =SETTINGS['learning rate'])
+
+
 
 

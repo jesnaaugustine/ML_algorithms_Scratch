@@ -4,6 +4,7 @@ import os
 import torch
 import numpy as np
 import random
+import time
 
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
@@ -35,6 +36,14 @@ def my_dataloader(train_set,test_set,train_target,test_target,batch_size,valid_f
     test_loader =DataLoader(test_dataset,batch_size=batch_size,shuffle=True)
 
     return train_loader,valid_loader,test_loader
+
+
+
+def train_model(model,num_epoch,train_loader,valid_loader,test_loader,optimizer,device):
+    start_time = time.time()
+    minibatch_loss_list, train_acc_list, valid_acc_list = [], [], []
+    for epoch in range(num_epoch):
+        model.train()
 
 
 
