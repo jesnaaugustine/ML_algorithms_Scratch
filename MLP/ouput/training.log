@@ -1,0 +1,6 @@
+Using mps
+X tain shape: torch.Size([12, 4])
+Y tain shape: torch.Size([12])
+X tain shape: torch.Size([32, 4])
+Y tain shape: torch.Size([32])
+Test accuracy 73.33%
