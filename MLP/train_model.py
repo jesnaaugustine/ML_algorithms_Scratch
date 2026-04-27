@@ -72,8 +72,10 @@ class MLP(torch.nn.Module):
         super().__init__()
         self.num_classes=num_classes
         self.model = torch.nn.Sequential(
-            torch.nn.Linear(num_features,num_hidden),
+            torch.nn.Linear(num_features,num_hidden,bias=False),#not taking bias unit to avaoid redendance since we are using batchnorm
+            torch.nn.BatchNorm1d(num_hidden),
             torch.nn.ReLU(),
+            torch.nn.Dropout(SETTINGS['drop_prob']),
             torch.nn.Linear(num_hidden,num_classes)
 
         )

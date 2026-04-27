@@ -6,6 +6,7 @@ hidden layer size: 32
 num epochs: 1000
 num workers: 0
 validation fraction: 0.1
+drop_prob: 0.2
 
 
 data path: '/Users/libinvarghese/Documents/Jesna/Git_ML/ML_algorithms_Scratch/data/Iris.csv'
